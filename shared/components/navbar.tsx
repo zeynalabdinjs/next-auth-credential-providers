@@ -24,7 +24,7 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent justify="end">
-        <Skeleton className="rounded-lg max-h-[80px]" isLoaded={status !== "loading"}>
+        <Skeleton className="rounded-md max-h-[80px]" isLoaded={status !== "loading"}>
           <ul className="flex justify-end items-center w-full gap-4">
             {status === "authenticated" ? (
               <>
