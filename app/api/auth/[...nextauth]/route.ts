@@ -6,7 +6,7 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text" },
+        email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              username: credentials?.username,
+              email: credentials?.email,
               password: credentials?.password,
             }),
           });
@@ -32,11 +32,15 @@ export const authOptions: NextAuthOptions = {
 
             return { ...user, accessToken: user.token, ...userInfo?.data };
           } else {
-            return null;
+            throw new Error(user.message || "Authentication failed");
           }
         } catch (error) {
           console.error("Login failed:", error);
-          return null;
+          if (error instanceof Error) {
+            throw new Error(error.message || "An error occurred during login. Please try again.");
+          } else {
+            throw new Error("An unknown error occurred. Please try again.");
+          }
         }
       },
     }),

@@ -14,5 +14,5 @@ export function middleware(request: NextRequestWithAuth, event: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ["/dashboard", "/profile", "/auth/sign-in", "/"],
+  matcher: ["/dashboard", "/profile", "/auth/sign-in"],
 };
