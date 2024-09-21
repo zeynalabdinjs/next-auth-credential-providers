@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button, Input } from "@nextui-org/react";
 
 export default function LoginPage() {
-  const [username, setUsername] = useState("zeeynalabdin1@gmail.com");
+  const [username, setUsername] = useState("zeynalabdinjs@gmail.com");
   const [password, setPassword] = useState("Test123456");
   const [load, setLoad] = useState(false);
 
