@@ -1,6 +1,8 @@
-# Next.js & NextUI Template
+# Next.js & NextUI & Next-Auth.js
 
 This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+
+[Use my backend for sign in and sign up](https://github.com/zeynalabdinjs/portfolio-fastify-api)
 
 [Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
 
