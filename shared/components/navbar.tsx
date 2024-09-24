@@ -29,8 +29,13 @@ export const Navbar = () => {
             {status === "authenticated" ? (
               <>
                 <NavbarItem>
-                  <Button as={NextLink} color="primary" variant="shadow" href={"/auth/sign-up"}>
+                  <Button as={NextLink} color="primary" variant="shadow" href={"/dashboard"}>
                     Dashboard
+                  </Button>
+                </NavbarItem>
+                <NavbarItem>
+                  <Button as={NextLink} color="primary" variant="shadow" href={"/dashboard/blog"}>
+                    Blog
                   </Button>
                 </NavbarItem>
                 <NavbarItem>

@@ -1,4 +1,4 @@
-import NextAuth, { JWT, NextAuthOptions, Session, User } from "next-auth";
+import NextAuth, { NextAuthOptions, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
@@ -29,7 +29,6 @@ export const authOptions: NextAuthOptions = {
                 Authorization: `Bearer ${user.token}`,
               },
             }).then((res) => res.json());
-
             return { ...user, accessToken: user.token, ...userInfo?.data };
           } else {
             throw new Error(user.message || "Authentication failed");
@@ -61,6 +60,9 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: "/auth/sign-in",
+  },
+  jwt: {
+    maxAge: 1 * 60 * 60,
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
